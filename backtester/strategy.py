@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from Strategy import Strategy
 
-class VolatilityBreakoutStrategy(Strategy):
+class VolatilityBreakoutStrategy:
 
     def __init__ (self, window_size=20): 
         """

@@ -15,5 +15,6 @@ class Broker:
 
         if cash + delta >= 0: 
             cash += delta 
+            position = -delta
         else: 
             raise Exception (f"Could not complete order {side} of {qty} shares @ ${price}. Not enough balance.")
