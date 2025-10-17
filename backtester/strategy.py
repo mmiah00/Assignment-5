@@ -7,7 +7,7 @@ class VolatilityBreakoutStrategy(Strategy):
     def __init__ (self, window_size=20): 
         """
         Volatility Breakout Strategy 
-        - Buy if daily return > rolling std dev of window-size 
+        - Calculates a rolling x-day standard deviation of returns and buys when the current return is > this x-day figure. 
         
         Args:
             window: size of rolling window 
@@ -15,7 +15,7 @@ class VolatilityBreakoutStrategy(Strategy):
         self.window_size = window_size
     
     def signals(self, prices: pd.Series) -> pd.Series:
-        rolling_vols = .rolling(window=self.window_size).std()
+        rolling_vols = prices.rolling(window=self.window_size).std()
 
         signals = [] # -1 to sell, 0 to hold/no action, 1 to buy 
 
