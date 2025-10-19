@@ -11,7 +11,7 @@ class Broker:
         if side == "BUY": 
             delta *= -1 
 
-        if qty == 0:
+        if qty <= 0:
             raise ValueError (f"You can't place an order for 0 shares")
         delta_positions = delta * qty
         delta = delta * qty * price
