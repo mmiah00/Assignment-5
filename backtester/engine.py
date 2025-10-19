@@ -5,7 +5,7 @@ class Backtester:
         self.strategy = strategy
         self.broker = broker
 
-    def run(self, prices: pd.Series):
+    def trade (self, prices: pd.Series):
         # Backtester: runs end-of-day loop: compute signal (t−1), trade at close (t), track cash/position/equity.
 
         signals = self.strategy.generate_signals(prices)
