@@ -10,11 +10,14 @@ class Broker:
 
         if side == "BUY": 
             delta *= -1 
-        
-        delta = delta * qty * price 
 
-        if cash + delta >= 0: 
-            cash += delta 
-            position = -delta
+        if qty == 0:
+            raise ValueError (f"You can't place an order for 0 shares")
+        delta_positions = delta * qty
+        delta = delta * qty * price
+
+        if self.cash + delta >= 0:
+            self.cash += delta
+            self.position = -delta_positions
         else: 
             raise Exception (f"Could not complete order {side} of {qty} shares @ ${price}. Not enough balance.")
