@@ -15,6 +15,3 @@ class Loader:
                 prices.append(x)
         self.prices = pd.Series(prices)
         return self.prices
-
-prices = Loader()
-print(prices.load_data(25))
