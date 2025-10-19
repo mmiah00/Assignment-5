@@ -3,7 +3,7 @@ class Broker:
         self.cash = cash
         self.position = 0
 
-    def market_order(self, side: str, qty: int, price: float):
+    def trade (self, side: str, qty: int, price: float):
         # Broker: accepts market orders, updates cash/position with no slippage/fees (keep deterministic for tests).
         
         delta = 1 # amt to add to our cash balance 
